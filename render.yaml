@@ -1,0 +1,41 @@
+# ==============================================================================
+# OmniAgent Render Blueprint Specification
+# Deploys the Python FastAPI Agentic Backend on Render
+# ==============================================================================
+
+services:
+  - type: web
+    name: omniagent-backend
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python -m uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PYTHONPATH
+        value: .
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_DB_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: AI_PROVIDER
+        value: mock
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: BACKEND_CORS_ORIGINS
+        value: "https://*.vercel.app,http://localhost:3000"

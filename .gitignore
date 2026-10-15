@@ -1,0 +1,198 @@
+# ==============================================================================
+# OmniAgent Git Ignore Policy - Production Grade
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. ENVIRONMENT VARIABLES, SECRETS & CREDENTIALS (CRITICAL)
+# ------------------------------------------------------------------------------
+# Never commit real API keys, Supabase credentials, or database passwords!
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+**/*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Preserve clean documentation/example templates for version control
+!.env.example
+!**/.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# Secrets, Certificates & Keys
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.pub
+credentials.json
+service-account*.json
+google-credentials*.json
+firebase-adminsdk*.json
+
+# ------------------------------------------------------------------------------
+# 2. PYTHON RUNTIME, BYTECODE & PACKAGING
+# ------------------------------------------------------------------------------
+__pycache__/
+**/**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python Virtual Environments
+venv/
+backend/venv/
+.venv/
+backend/.venv/
+env/
+backend/env/
+ENV/
+env.bak/
+venv.bak/
+
+# ------------------------------------------------------------------------------
+# 3. NODE.JS, NEXT.JS & FRONTEND BUILDS
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+jspm_packages/
+
+# Next.js Build Output & Cache
+.next/
+frontend/.next/
+out/
+frontend/out/
+.turbo/
+frontend/.turbo/
+
+# TypeScript Build Info
+*.tsbuildinfo
+frontend/*.tsbuildinfo
+
+# Package Manager Logs & Cache
+.npm
+frontend/.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# ------------------------------------------------------------------------------
+# 4. TESTING, COVERAGE & CODE QUALITY CACHES
+# ------------------------------------------------------------------------------
+.pytest_cache/
+backend/.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+.mypy_cache/
+backend/.mypy_cache/
+.ruff_cache/
+backend/.ruff_cache/
+
+# ------------------------------------------------------------------------------
+# 5. LOCAL DATABASES, LOGS & RUNTIME ARTIFACTS
+# ------------------------------------------------------------------------------
+# Local SQLite databases (Supabase PostgreSQL is the primary cloud DB)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+backend/data/*.db
+backend/data/*.sqlite
+backend/data/*.sqlite3
+
+# Generated agent deliverables and run artifacts (keep folder via .gitkeep)
+backend/data/artifacts/*
+!backend/data/artifacts/.gitkeep
+
+# System & Application Logs
+*.log
+logs/
+backend/logs/
+frontend/logs/
+*.pid
+*.seed
+*.pid.lock
+
+# ------------------------------------------------------------------------------
+# 6. OPERATING SYSTEM ARTIFACTS
+# ------------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+
+# ------------------------------------------------------------------------------
+# 7. IDE & CODE EDITORS
+# ------------------------------------------------------------------------------
+# Visual Studio Code (ignore workspaces, user state, and credentials)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains (PyCharm, WebStorm, IntelliJ)
+.idea/
+*.iws
+*.iml
+
+# Vim / Sublime / Emacs
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+.#*

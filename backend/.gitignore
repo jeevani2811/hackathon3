@@ -1,0 +1,32 @@
+# Backend Git Ignore
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Databases & Runtime Data
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/artifacts/*
+!data/artifacts/.gitkeep
+
+# Environment files with secrets
+.env
+.env.*
+!.env.example
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
